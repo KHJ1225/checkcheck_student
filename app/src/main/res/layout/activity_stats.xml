@@ -9,46 +9,78 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:gravity="center_horizontal|bottom"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="4"
+        android:gravity="center">
 
+        <TextView
+            android:id="@+id/textView_greeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_margin="20dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="50dp"
             android:orientation="vertical"
-            android:background="@color/mainColor"></LinearLayout>
+            android:background="@color/subColor"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="출석 현황"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:gravity="center"/>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp">
 
-            <ListView
-                android:id="@+id/listView"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/mainColor"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="#999999"
-                android:dividerHeight="1dp">
+                android:layout_marginBottom="3dp">
 
-            </ListView>
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:orientation="vertical"
-            android:background="@color/mainColor">
+                    <ListView
+                        android:id="@+id/listView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="#999999"
+                        android:dividerHeight="1dp">
+
+                    </ListView>
+                </LinearLayout>
+            </HorizontalScrollView>
 
         </LinearLayout>
 

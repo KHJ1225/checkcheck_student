@@ -26,11 +26,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSION_STORAGE = 1111;
 
-    JSONArray student = null;
+    JSONArray results = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
-                            student = jsonResponse.getJSONArray("response");
-                            JSONObject c = student.getJSONObject(0);
+                            results = jsonResponse.getJSONArray("response");
+                            JSONObject c = results.getJSONObject(0);
                             String success = c.getString("success");
 
                             //서버에서 보내준 값이 true이면?
@@ -74,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 //로그인에 성공했으므로 MainActivity로 넘어감
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, StatsActivity.class);
                                 startActivity(intent);
                             } else{//로그인 실패시
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -96,7 +99,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void checkPermission(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED){
